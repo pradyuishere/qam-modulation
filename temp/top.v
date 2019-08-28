@@ -33,8 +33,10 @@ module top(
 		signal_out_qam_mixer
 	);
 	
-	initial begin	
-		clk_mixer_count = 9;
+	initial begin
+		clk_qam_mixer = 0;
+		
+		clk_mixer_count = 4;
 		data_in_count = 1000;
 		data_out_net_count = 8;
 		
@@ -47,6 +49,7 @@ module top(
 		clk_mixer_counter = 1 + clk_mixer_counter;
 		if (clk_mixer_counter == clk_mixer_count) begin
 			clk_qam_mixer = ~clk_qam_mixer;
+			clk_mixer_counter = 0;
 		end
 	end // always clk_mixer_counter
 	
@@ -54,13 +57,14 @@ module top(
 		data_in_counter = data_in_counter + 1;
 		if (data_in_counter == data_in_count) begin
 			data_in_sampled = data_in;
+			data_in_counter = 0;
 		end
 	end // always data_in_counter
 	
 	always@(posedge clk) begin
 		data_out_complete_bit = 0;
 		data_out_net_counter = data_out_net_counter + 1;
-		data_bit_out = data_out_net_counter[data_out_net_counter - 1];
+		data_bit_out = signal_out_qam_mixer[data_out_net_counter - 1];
 		if (data_out_net_counter == data_out_net_count) begin
 			data_out_net_counter = 0;
 			data_out_complete_bit = 1;

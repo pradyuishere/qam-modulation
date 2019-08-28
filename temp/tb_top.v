@@ -6,14 +6,14 @@ module tb;
 	wire data_bit_out;
 	wire data_out_complete_bit;
 	
-	reg data_in_count;
-	reg data_in_counter;
+	integer data_in_count;
+	integer data_in_counter;
 	
-	reg signal_out_counter;
-	reg signal_out_count;
+	integer signal_out_counter;
+	integer signal_out_count;
 	
-	reg signed [7:0] signal_out_temp;
-	reg signed [7:0] signal_out_final;
+	reg [7:0] signal_out_temp;
+	reg [7:0] signal_out_final;
 	
 	top u1 (
 		clk,
@@ -59,5 +59,5 @@ module tb;
 			signal_out_final = signal_out_temp;
 		end
 	end
-
+	
 endmodule
