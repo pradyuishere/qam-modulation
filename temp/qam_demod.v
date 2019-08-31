@@ -1,9 +1,9 @@
 module qam_demodulator(
-  input signed [7:0] input_signal;
-  input clk;
-  input signed [7:0] sin_in;
-  input signed [7:0] cos_in;
-  output [2:0] data_demod;
+  input clk,
+  input signed [7:0] input_signal,
+  input signed [7:0] sin_in,
+  input signed [7:0] cos_in,
+  output reg [1:0] data_demod
   );
 
   reg signed [15:0] avg_filt_in1;
@@ -18,7 +18,7 @@ module qam_demodulator(
     avg_filt_out1
     );
 
-  moving_avg_filt mov_avg1(
+  moving_avg_filt mov_avg2(
     clk,
     avg_filt_in2,
     avg_filt_out2
