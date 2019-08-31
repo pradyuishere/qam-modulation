@@ -10,11 +10,11 @@ module tb;
     wire signed [7:0] data_out2;
 
     // Instantiate the Unit Under Test (UUT)
-    sin_cos inst(Clk, data_out1, data_out2);
-    // sine_wave_gen uut (
-    //     .Clk(Clk),
-    //     .data_out(data_out)
-    // );
+//    sin_cos inst(Clk, data_out1, data_out2);
+     sine_wave_gen uut (
+         .Clk(Clk),
+         .data_out(data_out1)
+     );
 
     //Generate a clock with 10 ns clock period.
     initial

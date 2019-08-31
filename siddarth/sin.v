@@ -1,3 +1,43 @@
+module tb;
+
+    // Inputs
+    reg Clk;
+    reg en;
+    reg reset;
+
+    // Outputs
+    wire signed [7:0] data_out;
+   // wire signed [7:0] data_out2;
+
+    // Instantiate the Unit Under Test (UUT)
+    //sin_wave_gen inst(Clk, data_out);
+     sine_wave_gen uut (
+         .Clk(Clk),
+         .data_out(data_out)
+     );
+
+    //Generate a clock with 10 ns clock period.
+    initial
+      begin
+
+$dumpfile("test.vcd");
+$dumpvars;
+      reset = 1;
+      #100;
+      en = 1;
+      #100;
+      reset = 0;
+      #100;
+      reset = 1;
+        Clk = 0;
+        $monitor(" %b,", data_out);
+        #100000 $finish;
+      end
+    always #5 Clk = ~Clk;
+
+endmodule
+
+
 module sine_wave_gen(Clk,data_out);
 //declare input and output
     input Clk;
@@ -376,9 +416,14 @@ sine[359] = -1;
     always@ (posedge(Clk))
     begin
         data_out = sine[i];
+        $display("%d    ",data_out);
         i = i+ 1;
         if(i == 359)
             i = 0;
     end
 
 endmodule
+//scale them down to -1,1
+//change frequency
+//create pcf file
+//
