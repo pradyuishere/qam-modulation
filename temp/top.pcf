@@ -1,0 +1,7 @@
+set_io clk D6
+set_io rst C6
+set_io data_bit_out C7
+set_io data_in[0] D4
+set_io data_in[1] D7
+set_io data_out_complete_bit D9
+set_io clk_out C10

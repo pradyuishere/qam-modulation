@@ -33,7 +33,7 @@ module tb;
     data_in = 0;
     #10000;
     rst = 1;
-    #1000000;
+    #100000;
     $finish;
   end
 
