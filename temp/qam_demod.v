@@ -3,8 +3,11 @@ module qam_demodulator(
   input signed [7:0] input_signal,
   input signed [7:0] sin_in,
   input signed [7:0] cos_in,
-  output reg [1:0] data_demod
+  output reg [1:0] data_demod,
+  output wire clk_out_raspi
   );
+
+  assign clk_out_raspi = clk;
 
   reg signed [15:0] avg_filt_in1;
   wire signed [15:0] avg_filt_out1;
