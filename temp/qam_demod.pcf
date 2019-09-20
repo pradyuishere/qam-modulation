@@ -1,0 +1,33 @@
+set_io clk R10
+
+set_io clk_out_raspi D6
+
+set_io data_demod[0] D4
+set_io data_demod[1] D7
+
+set_io input_signal[0] B11
+set_io input_signal[1] B10
+set_io input_signal[2] B9
+set_io input_signal[3] D8
+set_io input_signal[4] A11
+set_io input_signal[5] A10
+set_io input_signal[6] A9
+set_io input_signal[7] B8
+
+set_io sin_in[0] B4
+set_io sin_in[1] C3
+set_io sin_in[2] A2
+set_io sin_in[3] A5
+set_io sin_in[4] B5
+set_io sin_in[5] B3
+set_io sin_in[6] B6
+set_io sin_in[7] B7
+
+set_io cos_in[0] N6
+set_io cos_in[0] L7
+set_io cos_in[0] G5
+set_io cos_in[0] L9
+set_io cos_in[0] N7
+set_io cos_in[0] M8
+set_io cos_in[0] P9
+set_io cos_in[0] N9
