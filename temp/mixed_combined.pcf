@@ -1,0 +1,6 @@
+set_io clk D6
+set_io rst C6
+set_io data_in[0] D4
+set_io data_in[1] D7
+set_io data_demod_out[0] C9
+set_io data_demod_out[1] C10
